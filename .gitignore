@@ -1,0 +1,9 @@
+node_modules
+.vercel
+dist
+.output
+.env
+.env.local
+data/photos
+*.log
+.DS_Store
