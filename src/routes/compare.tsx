@@ -4,9 +4,27 @@ import { Guard } from "@/components/shell";
 export const Route = createFileRoute("/compare")({ component: ComparePage });
 
 const PAIRS = [
-  { name: "2019 Honda CR-V", stock: "A4418", original: "/fleet/crv-lot.jpg", vendor: "/fleet/crv-ref.jpg", abw: "/fleet/crv-studio.jpg" },
-  { name: "2018 Toyota Camry", stock: "B2201", original: "/fleet/sedan-lot.jpg", vendor: "", abw: "/fleet/sedan-studio.jpg" },
-  { name: "2018 Ford F-150", stock: "C1184", original: "/fleet/truck-lot.jpg", vendor: "", abw: "/fleet/truck-outdoor.jpg" },
+  {
+    name: "2019 Honda CR-V",
+    stock: "A4418",
+    original: "/fleet/crv-lot.jpg",
+    vendor: "/fleet/crv-ref.jpg",
+    abw: "/fleet/crv-studio.jpg",
+  },
+  {
+    name: "2018 Toyota Camry",
+    stock: "B2201",
+    original: "/fleet/sedan-lot.jpg",
+    vendor: "",
+    abw: "/fleet/sedan-studio.jpg",
+  },
+  {
+    name: "2018 Ford F-150",
+    stock: "C1184",
+    original: "/fleet/truck-lot.jpg",
+    vendor: "",
+    abw: "/fleet/truck-outdoor.jpg",
+  },
 ];
 
 function ComparePage() {
@@ -16,11 +34,17 @@ function ComparePage() {
         <div>
           <p className="font-display text-sm tracking-widest text-muted">TEST MODE</p>
           <h1 className="font-display text-4xl leading-none">Vendor vs ABW</h1>
+          <p className="mt-2 max-w-2xl text-sm text-muted">
+            Three cars are loaded. Seventeen slots are open for a real Dealer Image Pro export. The reference frame is a flatter cutout. ABW keeps the contact shadow and does not heal the Camry’s door ding.
+          </p>
         </div>
+        <p className="text-sm">3 of 20 cars</p>
         <div className="space-y-6">
           {PAIRS.map((car) => (
             <article key={car.stock} className="space-y-2">
-              <h2 className="font-display text-2xl">{car.name} <span className="text-muted">{car.stock}</span></h2>
+              <h2 className="font-display text-2xl">
+                {car.name} <span className="text-muted">{car.stock}</span>
+              </h2>
               <div className="grid gap-3 md:grid-cols-3">
                 <Pane label="Original" src={car.original} />
                 {car.vendor ? <Pane label="Vendor export" src={car.vendor} /> : <Empty label="Vendor export" />}
